@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace The_knits_proplem
 {
@@ -65,96 +63,166 @@ namespace The_knits_proplem
         }
         static void Main(string[] args)
         {
-            int knightX = 1;
-            int knitghY = 1;
-            int stepp = 0;
-            Dictionary<int,(int X, int Y)> used = new Dictionary<int, (int X, int Y)>();
-            used.Add(stepp, ( knightX, knitghY));
-            bool run = true;
-            while (run)
-            {
-                for (int y = 0; y < 9; y++)
+            bool main = true;
+            
+                while (main)
                 {
-                    for (int x = 0; x < 9; x++)
+               
+                    Console.Clear();
+                    int knightX = 1;
+                    int knitghY = 1;
+                    int stepp = 0;
+                    Dictionary<int, (int X, int Y)> used = new Dictionary<int, (int X, int Y)>();
+                    used.Add(stepp, (knightX, knitghY));
+                    bool run = true;
+                    while (run)
                     {
-                        Console.Write(board(x,y,used, knightX, knitghY));
-                    }
-                    Console.WriteLine();
-                }
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine("Nex step: ");
-                Console.Write("X cordinat: ");
-                int NewX = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Y cordinat: ");
-                int NewY = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+                        for (int y = 0; y < 9; y++)
+                        {
+                            for (int x = 0; x < 9; x++)
+                            {
+                                Console.Write(board(x, y, used, knightX, knitghY));
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.WriteLine("Nex step: ");
+                        Console.Write("X cordinat: ");
+                        int NewX = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Y cordinat: ");
+                        int NewY = Convert.ToInt32(Console.ReadLine());
 
 
-                if (NewTest(NewX,NewY,used))
+                        if (NewTest(NewX, NewY, used))
+                        {
+                            if (NewX == knightX + 2 && NewY == knitghY - 1)
+                            {
+                                knightX = NewX;
+                                knitghY = NewY;
+                                stepp += 1;
+                            }
+                            else if (NewX == knightX + 2 && NewY == knitghY + 1)
+                            {
+                                knightX = NewX;
+                                knitghY = NewY;
+                                stepp += 1;
+                            }
+                            else if (NewX == knightX - 2 && NewY == knitghY - 1)
+                            {
+                                knightX = NewX;
+                                knitghY = NewY;
+                                stepp += 1;
+                            }
+                            else if (NewX == knightX - 2 && NewY == knitghY + 1)
+                            {
+                                knightX = NewX;
+                                knitghY = NewY;
+                                stepp += 1;
+                            }
+                            else if (NewX == knightX + 1 && NewY == knitghY - 2)
+                            {
+                                knightX = NewX;
+                                knitghY = NewY;
+                                stepp += 1;
+                            }
+                            else if (NewX == knightX - 1 && NewY == knitghY - 2)
+                            {
+                                knightX = NewX;
+                                knitghY = NewY;
+                                stepp += 1;
+                            }
+                            else if (NewX == knightX + 1 && NewY == knitghY + 2)
+                            {
+                                knightX = NewX;
+                                knitghY = NewY;
+                                stepp += 1;
+                            }
+                            else if (NewX == knightX - 1 && NewY == knitghY + 2)
+                            {
+                                knightX = NewX;
+                                knitghY = NewY;
+                                stepp += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid step.");
+                            }
+                        }
+
+                        try
+                        {
+                            used.Add(stepp, (knightX, knitghY));
+                        }
+                        catch (Exception ex)
+                        {
+
+                        }
+                        bool pos1 = false;
+                        bool pos2 = false;
+                        bool pos3 = false;
+                        bool pos4 = false;
+                        bool pos5 = false;
+                        bool pos6 = false;
+                        bool pos7 = false;
+                        bool pos8 = false;
+                        foreach (var z in used)
+                        {
+                            if (z.Value.X == knightX + 2 && z.Value.Y == knitghY - 1 || 1 > knightX + 2 || 1 > knitghY - 1 || 8 < knightX + 2 || 8 < knitghY - 1)
+                            {
+                                pos1 = true;
+                            }
+                            if (z.Value.X == knightX + 2 && z.Value.Y == knitghY + 1 || 1 > knightX + 2 || 1 > knitghY + 1 || 8 < knightX + 2 || 8 < knitghY + 1)
+                            {
+                                pos2 = true;
+                            }
+                            if (z.Value.X == knightX - 2 && z.Value.Y == knitghY - 1 || 1 > knightX - 2 || 1 > knitghY - 1 || 8 < knightX - 2 || 8 < knitghY - 1)
+                            {
+                                pos3 = true;
+                            }
+                            if (z.Value.X == knightX - 2 && z.Value.Y == knitghY + 1 || 1 > knightX - 2 || 1 > knitghY + 1 || 8 < knightX - 2 || 8 < knitghY + 1)
+                            {
+                                pos4 = true;
+                            }
+                            if (z.Value.X == knightX + 1 && z.Value.Y == knitghY - 2 || 1 > knightX + 1 || 1 > knitghY - 2 || 8 < knightX + 1 || 8 < knitghY - 2)
+                            {
+                                pos5 = true;
+                            }
+                            if (z.Value.X == knightX - 1 && z.Value.Y == knitghY - 2 || 1 > knightX - 1 || 1 > knitghY - 2 || 8 < knightX - 1 || 8 < knitghY - 2)
+                            {
+                                pos6 = true;
+                            }
+                            if (z.Value.X == knightX + 1 && z.Value.Y == knitghY + 2 || 1 > knightX + 1 || 1 > knitghY + 2 || 8 < knightX + 1 || 8 < knitghY + 2)
+                            {
+                                pos7 = true;
+                            }
+                            if (z.Value.X == knightX - 1 && z.Value.Y == knitghY + 2 || 1 > knightX - 1 || 1 > knitghY + 2 || 8 < knightX - 1 || 8 < knitghY + 2)
+                            {
+                                pos8 = true;
+                            }
+                        }
+
+                        if (pos1 && pos2 && pos3 && pos4 && pos5 && pos6 && pos7 && pos8)
+                        {
+                            Console.WriteLine("Out of posible steps. Try agin.");
+                            Console.ReadLine();
+                            run = false;
+                        }
+                    }
+                catch (Exception ex)
                 {
-                    if (NewX == knightX + 2 && NewY == knitghY - 1)
-                    {
-                        knightX = NewX;
-                        knitghY = NewY;
-                        stepp += 1;
-                    }
-                    else if (NewX == knightX + 2 && NewY == knitghY + 1)
-                    {
-                        knightX = NewX;
-                        knitghY = NewY;
-                        stepp += 1;
-                    }
-                    else if (NewX == knightX - 2 && NewY == knitghY - 1)
-                    {
-                        knightX = NewX;
-                        knitghY = NewY;
-                        stepp += 1;
-                    }
-                    else if (NewX == knightX - 2 && NewY == knitghY + 1)
-                    {
-                        knightX = NewX;
-                        knitghY = NewY;
-                        stepp += 1;
-                    }
-                    else if (NewX == knightX + 1 && NewY == knitghY - 2)
-                    {
-                        knightX = NewX;
-                        knitghY = NewY;
-                        stepp += 1;
-                    }
-                    else if (NewX == knightX - 1 && NewY == knitghY - 2)
-                    {
-                        knightX = NewX;
-                        knitghY = NewY;
-                        stepp += 1;
-                    }
-                    else if (NewX == knightX + 1 && NewY == knitghY + 2)
-                    {
-                        knightX = NewX;
-                        knitghY = NewY;
-                        stepp += 1;
-                    }
-                    else if (NewX == knightX - 1 && NewY == knitghY + 2)
-                    {
-                        knightX = NewX;
-                        knitghY = NewY;
-                        stepp += 1;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid step.");
-                    }
+                    Console.WriteLine("Only number imputs allowed.");
+                    Console.ReadLine();
                 }
 
-                try
-                {
-                    used.Add(stepp, ( knightX, knitghY));
-                }catch (Exception ex)
-                {
-                    
-                }
+            }
                 
-            }  
+            }
+            
+            
+              
             
             
         }
