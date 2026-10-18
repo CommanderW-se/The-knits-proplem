@@ -12,3 +12,9 @@ However, creating the .exe file wasn't easy because, as it turned out, you can't
 So, after quickly copying the code into a new project, I finally managed to create the .exe file. But then I found out that GitHub doesn't allow files larger than 25 MB to be uploaded directly, and even when compressed, the .exe was still over 25 MB.
 
 So that's why there's a Google Drive link for the demo.
+
+# Instructions:
+
+Clone the repository into Visual Studio, and you should be able to run the project from there.
+
+As for the demo, you just need to download it and run it, assuming I didn't mess anything up.
